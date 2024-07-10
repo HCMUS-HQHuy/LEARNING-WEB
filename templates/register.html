@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1> Sign Up page</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username }}   <br>
+        {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span> 
+            <br>
+        {% endfor %}
+        {{ form.email }} <br>
+        {% for error in form.email.errors %}
+            <span style="color: red;">{{ error }}</span> 
+            <br>
+        {% endfor %}
+        {{ form.password }} <br>
+        {{ form.repassword }} <br>
+        {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span> 
+            <br>
+        {% endfor %}
+        {{ form.submit  }}
+    </form>
+
+    <p> Already have an account? <a href="{{url_for('login')}}"> Login </a> </p>
+</body>
+</html>
